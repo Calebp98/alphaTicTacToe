@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from games import TicTacToe  # Assuming the TicTacToe class is in 'your_module'
+from games import TicTacToe  
 
 class TestTicTacToe(unittest.TestCase):
     def setUp(self):

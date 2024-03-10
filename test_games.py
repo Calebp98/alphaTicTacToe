@@ -60,5 +60,8 @@ class TestTicTacToe(unittest.TestCase):
         expected_board = np.zeros((3, 3), dtype=int)
         self.assertTrue(np.array_equal(self.game.board, expected_board))
 
+    def test_resaet(self):
+        self.assertTrue(1==2)
+
 if __name__ == '__main__':
     unittest.main()

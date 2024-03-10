@@ -30,8 +30,6 @@ class TicTacToe:
             if self.is_winner(player):
                 self.winner = player
                 return True
-            if self.winner == player:
-                return True
         # If no winner and the board is full, it's a draw
         if self.is_full():
             self.winner = 0  # Indicate a draw
@@ -61,6 +59,8 @@ class TicTacToe:
 
     def reset(self):
         self.board = np.zeros((3, 3), dtype=int)
+        self.turn = 1
+        self.winner = 0
 
     def __str__(self):
         return str(self.board)

@@ -39,15 +39,18 @@ class TicTacToe:
         # Game is not over
         return False
 
-
     def get_valid_moves(self):
         return np.argwhere(self.board == 0)
     
     def get_valid_moves_indices(self):
         return np.flatnonzero(self.board == 0)
     
-
     def make_move(self, move):
+
+        # check if the move is valid
+        if self.board[tuple(move)] != 0:
+            raise ValueError('Invalid move')
+        
         self.board[tuple(move)] = self.turn
         self.turn = 3 - self.turn
 
@@ -61,9 +64,12 @@ class TicTacToe:
 
     def reset(self):
         self.board = np.zeros((3, 3), dtype=int)
+        self.turn = 1
+        self.winner = 0 #
 
     def __str__(self):
         return str(self.board)
+    
 
 
 class UltimateTicTacToe:

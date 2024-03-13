@@ -1,3 +1,51 @@
+# # Make sure all necessary imports are included
+# import numpy as np
+# import torch
+# import torch.nn as nn
+# import torch.nn.functional as F
+# import torch.optim as optim
+
+# import matplotlib.pyplot as plt
+# import random
+
+# from tqdm.notebook import tqdm
+# import ipywidgets as widgets
+# from IPython.display import display, clear_output
+
+# from games import TicTacToe
+# from SimplePolicyNetwork import SimplePolicyNetwork, makeValidMove
+
+# from games import TicTacToe
+# from SimplePolicyNetwork import SimplePolicyNetwork, makeValidMove
+
+# import unittest
+
+
+# board_size = (3, 3)  # For Tic Tac Toe
+# num_moves = board_size[0] * board_size[1]
+
+# class TestGameOutcome(unittest.TestCase):
+#     def test_game_play(self):
+#         game = TicTacToe()
+#         model = SimplePolicyNetwork(board_size, num_moves)
+
+#         while not game.is_game_over():
+#             makeValidMove(game, model)
+
+#         if game.winner:
+#             self.assertIsNotNone(game.winner, "Expected a winner but got None.")
+#         else:
+#             self.assertTrue(game.is_draw(), "Expected a draw but game did not end as such.")
+
+
+
+
+
+
+
+# if __name__ == '__main__':
+#     unittest.main()
+
 # import unittest
 # import numpy as np
 # from games import TicTacToe  
@@ -129,3 +177,4 @@ class TestTicTacToe(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

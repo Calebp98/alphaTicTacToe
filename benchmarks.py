@@ -1,6 +1,7 @@
 from games import TicTacToe
 import random
 import torch
+from tqdm import tqdm
 
 from SimplePolicyNetwork import makeValidMove
 
@@ -30,7 +31,6 @@ def random_agent_benchmark(model, total_games=500, random_start=True):
     draw_count = 0
     for _ in range(total_games):
         testGame.reset()
-
         outcome = play_game_with_random(model, testGame, random_start=random_start)
         if outcome == 1:
             win_count += 1
@@ -39,9 +39,15 @@ def random_agent_benchmark(model, total_games=500, random_start=True):
         elif outcome == 0:
             draw_count += 1
 
-    print(f"Win Rate: {win_count/total_games*100}%")
-    print(f"Loss Rate: {loss_count/total_games*100}%")
-    print(f"Draw Rate: {draw_count/total_games*100}%")
+    win_rate = (win_count / total_games) * 100
+    loss_rate = (loss_count / total_games) * 100
+    draw_rate = (draw_count / total_games) * 100
+
+    # Update the tqdm postfix to display metrics
+    message = f"Win Rate: {win_rate}%, Loss Rate: {loss_rate}%, Draw Rate: {draw_rate}%"
+    tqdm.write(message)
+    return {'win_rate': win_rate, 'loss_rate': loss_rate, 'draw_rate': draw_rate}
+
 
 
 # parallel test (not working)
@@ -83,6 +89,7 @@ def random_agent_benchmark_parallel(model, total_games=500, random_start=True, n
                 loss_count += 1
             elif outcome == 0:
                 draw_count += 1
+
 
     print(f"Win Rate: {win_count / total_games * 100}%")
     print(f"Loss Rate: {loss_count / total_games * 100}%")
